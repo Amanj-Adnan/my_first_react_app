@@ -45,10 +45,12 @@ RegisterForm = async(event) => {
         password_confirmation:this.state.password_confirmation
     }
 const res=await axios.post("http://127.0.0.1:8000/api/register",data)
-const token = res.data.data.token;
-const user = res.data.data.user;
+window.location.reload()
+const token = res.data.token;
+const user = res.data.user;
 localStorage.setItem("token", token);
 localStorage.setItem("user", JSON.stringify(user));
+
   };
  
 // Login Functions
@@ -60,8 +62,8 @@ localStorage.setItem("user", JSON.stringify(user));
         password:this.state.password
     }
 const res=await axios.post("http://127.0.0.1:8000/api/login",data)
-const token = res.data.data.token;
-const user = res.data.data.user;
+const token = res.data.token;
+const user = res.data.user;
 localStorage.setItem("token", token);
 localStorage.setItem("user", JSON.stringify(user));
   };
@@ -70,7 +72,7 @@ GetUser_Login=async()=>{
     try {
         const user = JSON.parse(localStorage.getItem("user"));
         const token = localStorage.getItem("token");
-        
+        console.log('first', "first")
     } catch (error) {
         console.log('error', error)
     }
@@ -78,7 +80,7 @@ GetUser_Login=async()=>{
 }
 
 // Add Product
-  Add_Product = (id, data) => {
+  Add_Product = async() => {
      if  (localStorage.token) {
        setToken(localStorage.getItem("token"));
      }
@@ -93,7 +95,7 @@ GetUser_Login=async()=>{
             price:this.state.price
         }
       await axios.post(
-       `/api/v1/newRequiredProperty/${id}`,
+       `http://127.0.0.1:8000/api/products`,
        data,
        config
       );
@@ -119,7 +121,10 @@ GetUser_Login=async()=>{
             RegisterForm:this.RegisterForm,
             // form login
             LoginForm:this.LoginForm,
-            GetUser_Login:this.GetUser_Login
+            GetUser_Login:this.GetUser_Login,
+            // product
+            Add_Product:this.Add_Product
+
         }}>
             {this.props.children}
         </ProductContext.Provider>

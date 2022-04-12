@@ -9,6 +9,7 @@ import MainNav from './components/layout/MainNav';
 import Login from './Form/Login';
 import Register from './Form/Register';
 import { ProductConsumer } from "./components/Statemanagment/Contex";
+import { Redirect } from "react-router-dom";
 
 
 function App() {
@@ -25,6 +26,11 @@ function App() {
       </div>
      
        <div>
+         {localStorage.getItem("token")? (
+                <Redirect from="/login" to="/" />
+              ) : (
+                <Redirect from="/" to="/login" />
+              )}
           <Switch>
       <Route path='/' exact={true}>
        <AllMeetups/>
