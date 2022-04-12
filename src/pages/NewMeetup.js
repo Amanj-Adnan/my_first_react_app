@@ -1,44 +1,12 @@
-import { useRef } from "react";
-import { useHistory } from "react-router-dom";
 import React from "react";
-
+import { ProductConsumer } from "../components/Statemanagment/Contex";
 function NewMeetup() {
-  const titleRef = useRef();
-  const adressRef = useRef();
-  const descriptionRef = useRef();
-  const image_urlRef = useRef();
-  const history = useHistory();
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    const enteredTitle = titleRef.current.value;
-    const enteredAddress = adressRef.current.value;
-    const enteredDescription = descriptionRef.current.value;
-    const enteredImage_url = image_urlRef.current.value;
-
-    const post = {
-      title: enteredTitle,
-      address: enteredAddress,
-      description: enteredDescription,
-      image_url: enteredImage_url,
-    };
-
-    fetch("http://127.0.0.1:8000/posts", {
-      method: "POST",
-      body: JSON.stringify(post),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then(() => {
-      history.replace("/");
-    });
-  };
+    
   return (
     <ProductConsumer>
       {(value) => {
-        const { P_name, price, description, img_path, OnChangeHandler } = value;
+        const { P_name, price,Add_Product, description, img_path, OnChangeHandler } = value;
 
         return (
           <div className="min-h-screen bg-gray-600 flex justify-center items-center">
@@ -92,7 +60,7 @@ function NewMeetup() {
               <div className="text-center mt-6">
                 <button
                   type="submit"
-                  onClick={submitHandler}
+                  onClick={Add_Product}
                   className="py-3 w-64 text-xl text-green-200 hover:text-white bg-green-400  rounded-2xl"
                 >
                   Create Post
