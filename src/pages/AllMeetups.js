@@ -10,7 +10,7 @@ function AllMeetups() {
    const [loadPosts , setLoadPosts] = useState([]);
     
    useEffect(()=>{
-          fetch("http://127.0.0.1:8000/posts").then(res => {
+          fetch("http://127.0.0.1:8000/api/products").then(res => {
 
         return res.json();
 

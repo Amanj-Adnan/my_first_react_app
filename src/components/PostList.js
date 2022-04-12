@@ -7,9 +7,9 @@ function PostList(props) {
            {props.posts.map(post => <Post
              key={post.id} 
              id={post.id}
-             image={post.image_url}
-             title={post.title}
-             address={post.address}
+             image={post.img_path}
+             title={post.name}
+             address={post.price}
              description={post.description}
              />)}
         </div>
