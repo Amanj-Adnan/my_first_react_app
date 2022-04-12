@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 import{ FavContextProvider} from "./store/fav-context"
+import { Context } from './components/Statemanagment/Contex';
  
 ReactDOM.render(
+  <Context>
   <FavContextProvider>
     <BrowserRouter>
     <React.StrictMode>
       <App />
     </React.StrictMode>
     </BrowserRouter>
-  </FavContextProvider>,
+  </FavContextProvider>
+  </Context>,
   document.getElementById('root')
 );
 

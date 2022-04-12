@@ -9,19 +9,19 @@ function AllMeetups() {
   const [load , setLoad] = useState(true);
    const [loadPosts , setLoadPosts] = useState([]);
     
-   useEffect(()=>{
-          fetch("http://127.0.0.1:8000/api/products").then(res => {
+  //  useEffect(()=>{
+  //         fetch("http://127.0.0.1:8000/api/products").then(res => {
 
-        return res.json();
+  //       return res.json();
 
-        }).then(data =>{
-          setLoad(false);
-          setLoadPosts(data);
+  //       }).then(data =>{
+  //         setLoad(false);
+  //         setLoadPosts(data);
           
-        });
+  //       });
        
     
-   },[]);
+  //  },[]);
   
   if (load){
    
