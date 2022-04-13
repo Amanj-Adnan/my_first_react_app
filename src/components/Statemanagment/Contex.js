@@ -21,7 +21,8 @@ class Context extends React.Component{
             img_path:"",
             description:"",
             price:"",
-
+            R_redirect:false,
+            L_redirect:false,
         }
     }
 
@@ -50,6 +51,7 @@ const token = res.data.token;
 const user = res.data.user;
 localStorage.setItem("token", token);
 localStorage.setItem("user", JSON.stringify(user));
+this.setState({R_redirect:true})
 
   };
  
@@ -66,6 +68,7 @@ const token = res.data.token;
 const user = res.data.user;
 localStorage.setItem("token", token);
 localStorage.setItem("user", JSON.stringify(user));
+this.setState({L_redirect:true})
   };
 
 GetUser_Login=async()=>{
