@@ -30,6 +30,7 @@ componentDidMount() {
     this.GetUser_Login()
 }
 
+// onchange handler
 OnChangeHandler=(e)=>{
         this.setState({
             [e.target.name]:e.target.value
@@ -69,18 +70,21 @@ localStorage.setItem("token", token);
 localStorage.setItem("user", JSON.stringify(user));
 this.setState({L_redirect:true})
   };
-
+// is login user
 GetUser_Login=async()=>{
     try {
-        const user = JSON.parse(localStorage.getItem("user"));
-        const token = localStorage.getItem("token");
-        console.log('first', "first")
+         JSON.parse(localStorage.getItem("user"));
+        localStorage.getItem("token");
     } catch (error) {
         console.log('error', error)
     }
 
 }
-
+// logout
+LogoutUser = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  };
 // Add Product
   Add_Product = async() => {
      if  (localStorage.token) {
@@ -124,6 +128,8 @@ GetUser_Login=async()=>{
             // form login
             LoginForm:this.LoginForm,
             GetUser_Login:this.GetUser_Login,
+            //logout
+            LogoutUser:this.LogoutUser,
             // product
             Add_Product:this.Add_Product
 

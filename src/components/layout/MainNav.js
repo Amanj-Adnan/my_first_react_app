@@ -1,9 +1,14 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { ProductConsumer } from "../Statemanagment/Contex";
 
 function MainNav() {
-  return (
+	return (
+		<ProductConsumer>
+		  {(value) => {
+			const { LogoutUser } = value;
+			return (
     <header className="">
       <nav className="bg-gray-800 p-2 mt-0 fixed w-full z-10 top-0">
         <div className="container mx-auto flex flex-wrap items-center">
@@ -57,6 +62,7 @@ function MainNav() {
 			  <li className="mr-3">
                 <Link
                   to="/login"
+				  onClick={LogoutUser}
                   className="inline-block text-gray-100 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
                 >
                   Logout
@@ -69,7 +75,9 @@ function MainNav() {
         </div>
       </nav>
     </header>
-  );
+       );
+	}}
+  </ProductConsumer>
+);
 }
-
 export default MainNav;
