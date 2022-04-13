@@ -18,7 +18,7 @@ function AllMeetups() {
           setLoad(false);
           setLoadPosts(data);
           
-        });
+        });   
        
     
    },[]);

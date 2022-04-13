@@ -21,7 +21,6 @@ function App() {
     <div >
 
       <div>
-         <MainNav  />
 
       </div>
      
@@ -31,7 +30,18 @@ function App() {
               ) : (
                 <Redirect from="/" to="/login" />
               )}
+                   
           <Switch>
+            
+      <Route path='/login' >
+       
+       <Login />
+      </Route>
+      <Route path='/register' >
+       
+       <Register />
+      </Route>
+          <MainNav>
       <Route path='/' exact={true}>
        <AllMeetups/>
        
@@ -41,17 +51,11 @@ function App() {
        
        <NewMeetup />
       </Route>
-      <Route path='/login' >
-       
-       <Login />
-      </Route>
-      <Route path='/register' >
-       
-       <Register />
-      </Route>
-     <Route path='/fav'> <Fav/> </Route>
 
+     <Route path='/fav'> <Fav/> </Route>
+     </MainNav>
      </Switch>
+  
        </div>
     </div>
        );
