@@ -84,6 +84,7 @@ GetUser_Login=async()=>{
 LogoutUser = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    window.location.reload()
   };
 // Add Product
   Add_Product = async() => {
