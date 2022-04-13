@@ -21,7 +21,7 @@ function App() {
     <div >
 
       <div>
-
+      <MainNav/>
       </div>
      
        <div>
@@ -40,7 +40,6 @@ function App() {
        
        <Register />
       </Route>
-          <MainNav>
       <Route path='/' exact={true}>
        <AllMeetups/>
        
@@ -52,7 +51,6 @@ function App() {
       </Route>
 
      <Route path='/fav'> <Fav/> </Route>
-     </MainNav>
      </Switch>
   
        </div>
