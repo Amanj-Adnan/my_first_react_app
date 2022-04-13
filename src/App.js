@@ -26,11 +26,11 @@ function App() {
       </div>
      
        <div>
-         {localStorage.getItem("token")? (
+         {/* {localStorage.getItem("token")? (
                 <Redirect from="/login" to="/" />
               ) : (
                 <Redirect from="/" to="/login" />
-              )}
+              )} */}
           <Switch>
       <Route path='/' exact={true}>
        <AllMeetups/>
