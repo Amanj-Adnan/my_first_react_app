@@ -46,7 +46,6 @@ RegisterForm = async(event) => {
         password_confirmation:this.state.password_confirmation
     }
 const res=await axios.post("http://127.0.0.1:8000/api/register",data)
-window.location.reload()
 const token = res.data.token;
 const user = res.data.user;
 localStorage.setItem("token", token);

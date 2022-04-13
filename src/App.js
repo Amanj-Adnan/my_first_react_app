@@ -31,11 +31,11 @@ function App() {
               )} */}
           <Switch>
             
-      <Route path='/login' >
+      <Route exact={true} path='/login' >
        
        <Login />
       </Route>
-      <Route path='/register' >
+      <Route exact={true} path='/register' >
        
        <Register />
       </Route>
