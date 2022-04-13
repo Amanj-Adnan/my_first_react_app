@@ -23,6 +23,7 @@ class Context extends React.Component{
             price:"",
             R_redirect:false,
             L_redirect:false,
+            P_redirect:false,
         }
     }
 
@@ -112,6 +113,7 @@ LogoutUser = () => {
        icon: "success",
        timer:1000
       });
+      this.setState({P_redirect:true})
      } catch (error) {
       alert(`error of Creating Product`);
      }
